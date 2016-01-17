@@ -13,7 +13,7 @@ var SLACK_WEBAPI_TOKEN = process.env.SLACK_WEBAPI_TOKEN;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'dev')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/hook', (req, res)=> {
     if (req.body.token == SLACK_TOKEN) {
