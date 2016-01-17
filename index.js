@@ -21,9 +21,9 @@ app.post('/hook', (req, res)=> {
         request(`https://slack.com/api/users.info?token=${SLACK_WEBAPI_TOKEN}&user=${req.body.user_id}`, (error, userInfoRes, body)=> {
             var jsonBody = JSON.parse(body);
             if (jsonBody.ok == true) {
-                io.emit('ding', {name: jsonBody.user.name, image: jsonBody.user.profile.image_48});
+                io.emit('led', {name: jsonBody.user.name, image: jsonBody.user.profile.image_48});
             } else {
-                io.emit('ding', {error: true});
+                io.emit('led', {error: true});
             }
         });
 
