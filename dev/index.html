@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+    <title>WoT Beginners Toolkit</title>
+    <script src="css-devices/devices/i2c.js" defer></script>
+    <script src="css-devices/devices/PortManager.js" defer></script>
+    <script src="css-devices/devices/Utility.js" defer></script>
+    <script src="css-devices/devices/PCA9685.js" defer></script>
+    <script src="css-devices/devices/MCP3425.js" defer></script>
+    <script src="css-devices/CSSDeviceManager.js" defer></script>
+    <script src="css-devices/MultiColorLED.js" defer></script>
+    <script src="css-devices/Servo.js" defer></script>
+    <script src="css-devices/ADC.js" defer></script>
+    <script src="app.js" defer></script>
+    <style>
+      body {
+        padding-top: 0.3em;
+        padding-left: 1.8em;
+      }
+      #led {
+        color: green;
+        width: 300px;
+        height: 300px;
+        border-radius: 150px;
+        border: 1px solid #ddd;
+        font-size: 100px;
+        line-height: 300px;
+        text-align: center;
+      }
+      
+      #servo {
+        transform: rotate(40deg); /* 0 to 180 */
+        display: inline-block;
+      }
+      #slider {
+        width: 500px;
+        position: absolute;
+        top: 100px;
+        left: 650px;
+      }
+    </style>
+    <script type="text/javascript">
+      function ding(){
+        document.getElementById("servo").style["transform"]="rotate("+10+"deg)";
+        document.getElementById("led").style["color"]="red";
+        document.getElementById("led").style["background-color"]="#00FF47";
+        setTimeout(function(){
+          document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
+          document.getElementById("led").style["color"]="green";
+          document.getElementById("led").style["background-color"]="#fff";
+        }, 200);
+      }
+      
+      function rest(){
+        document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
+      }
+    </script>
+  </head>
+  <body>
+    <!--
+    <input id="slider" type="range" min="0" max="180">
+    -->
+    <div id="led" onClick="ding()" data-css-device="type:multi-color-led; port-type:i2c; port-number:0; address:0x40; pwm-pin:0,1,2; min-pulse:0; max-pulse:0.006;">Ding!</div>
+    <div id="servo" data-css-device="type:servo; port-type:i2c; port-number:0; address:0x40; pwm-pin:3; min-pulse:0.0005; max-pulse:0.0024; angle-range:180;">SERVO<BR><span id="angl"></span></div>
+    ADC: <input id="adc" data-css-device="type:adc; port-type:i2c; port-number:0; address:0x68;"></input>
+    <button id="rest" onClick="rest()">rest</button>
+  </body>
+</html>

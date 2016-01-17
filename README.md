@@ -1,2 +1,1 @@
-# wot-ding
-wot ding
+# wot-beginners-toolkit
