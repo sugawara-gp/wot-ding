@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
-    <title>WoT Beginners Toolkit</title>
+    <title>WoT Dingbell</title>
     <script src="css-devices/devices/i2c.js" defer></script>
     <script src="css-devices/devices/PortManager.js" defer></script>
     <script src="css-devices/devices/Utility.js" defer></script>
@@ -61,9 +61,25 @@
     <!--
     <input id="slider" type="range" min="0" max="180">
     -->
-    <div id="led" onClick="ding()" data-css-device="type:multi-color-led; port-type:i2c; port-number:0; address:0x40; pwm-pin:0,1,2; min-pulse:0; max-pulse:0.006;">Ding!</div>
-    <div id="servo" data-css-device="type:servo; port-type:i2c; port-number:0; address:0x40; pwm-pin:3; min-pulse:0.0005; max-pulse:0.0024; angle-range:180;">SERVO<BR><span id="angl"></span></div>
+    <div id="led" onClick="ding()" data-css-device="type:multi-color-led; port-type:i2c; port-number:0; address:0x40; pwm-pin:0,1,2; min-pulse:0; max-pulse:0.006;">Ding!
+    </div>
+    <div id="servo" data-css-device="type:servo; port-type:i2c; port-number:0; address:0x40; pwm-pin:3; min-pulse:0.0005; max-pulse:0.0024; angle-range:180;">SERVO<br>
+    <span id="angl">
+    </span>
+    </div>
     ADC: <input id="adc" data-css-device="type:adc; port-type:i2c; port-number:0; address:0x68;"></input>
     <button id="rest" onClick="rest()">rest</button>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io();
+    socket.on('ding', function (userInfo) {
+        var $li = $('<li>');
+        $li.text(userInfo.name);
+        $li.append($('<img>').attr('src', userInfo.image));
+        $('#dings').append($li);
+      });
+    </script>
+
   </body>
 </html>
