@@ -17,18 +17,28 @@
       body {
         padding-top: 0.3em;
         padding-left: 1.8em;
+        background-color: black;
       }
       #led {
-        color: green;
-        width: 300px;
-        height: 300px;
-        border-radius: 150px;
-        border: 1px solid #ddd;
-        font-size: 100px;
-        line-height: 300px;
-        text-align: center;
+        height: 500px;
+        width: 500px;
+        border-radius: 50%;
+        border: 1px solid green;
+        box-shadow:0 0 100px green;
+        position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		color: green;
+      	font-size: 100px;
+      	line-height: 500px;
+    	width: 500px;
+    	height: 500px;
+    	text-align: center;
+    	vertical-align: middle;
       }
-      
       #servo {
         transform: rotate(40deg); /* 0 to 180 */
         display: inline-block;
@@ -48,7 +58,7 @@
         setTimeout(function(){
           document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
           document.getElementById("led").style["color"]="green";
-          document.getElementById("led").style["background-color"]="#fff";
+          document.getElementById("led").style["background-color"]="black";
         }, 200);
       }
       
