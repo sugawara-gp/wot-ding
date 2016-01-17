@@ -27,16 +27,16 @@
         width: 500px;
         border-radius: 50%;
         /*border: 1px solid green;*/
-        box-shadow:0 0 100px green;
+        box-shadow:0 0 50px green;
         position: absolute;
-		    top: 0;
-		    right: 0;
-		    bottom: 0;
-		    left: 0;
-		    margin: auto;
-		    color: green;
-      	font-size: 100px;
-      	line-height: 500px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        color: green;
+        font-size: 100px;
+        line-height: 500px;
         width: 500px;
         height: 500px;
         text-align: center;
@@ -56,11 +56,12 @@
       function ding(){
         document.getElementById("servo").style["transform"]="rotate("+10+"deg)";
         document.getElementById("led").style["color"]="#D8103C";
-        document.getElementById("led").style["background-color"]="#00FF47";
+        document.getElementById("led").style["box-shadow"]="0 0 100px #D8103C";
         setTimeout(function(){
           document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
           document.getElementById("led").style["color"]="green";
           document.getElementById("led").style["background-color"]="black";
+          document.getElementById("led").style["box-shadow"]="0 0 50px green";
         }, 200);
       }
       
@@ -83,7 +84,18 @@
         $li.text(userInfo.name);
         $li.append($('<img>').attr('src', userInfo.image));
         $('#leds').append($li);
-    },200);
+              function ding(){
+        document.getElementById("servo").style["transform"]="rotate("+10+"deg)";
+        document.getElementById("led").style["color"]="#D8103C";
+        document.getElementById("led").style["box-shadow"]="0 0 100px #D8103C";
+        setTimeout(function(){
+          document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
+          document.getElementById("led").style["color"]="green";
+          document.getElementById("led").style["background-color"]="black";
+          document.getElementById("led").style["box-shadow"]="0 0 50px green";
+        }, 200);
+      }
+    });
 </script>
 
 </body>
