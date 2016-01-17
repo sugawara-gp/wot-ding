@@ -58,7 +58,6 @@
     </script>
   </head>
   <body>
-    <ul id="dings"></ul>
     <!--
     <input id="slider" type="range" min="0" max="180">
     -->
@@ -74,11 +73,11 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
     var socket = io();
-    socket.on('ding', function (userInfo) {
+    socket.on('led', function (userInfo) {
         var $li = $('<li>');
         $li.text(userInfo.name);
         $li.append($('<img>').attr('src', userInfo.image));
-        $('#dings').append($li);
+        $('#led').append($li);
       });
     </script>
 
