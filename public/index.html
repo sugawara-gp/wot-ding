@@ -84,18 +84,9 @@
         $li.text(userInfo.name);
         $li.append($('<img>').attr('src', userInfo.image));
         $('#leds').append($li);
-              function ding(){
-        document.getElementById("servo").style["transform"]="rotate("+10+"deg)";
-        document.getElementById("led").style["color"]="#D8103C";
-        document.getElementById("led").style["box-shadow"]="0 0 100px #D8103C";
-        setTimeout(function(){
-          document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
-          document.getElementById("led").style["color"]="green";
-          document.getElementById("led").style["background-color"]="black";
-          document.getElementById("led").style["box-shadow"]="0 0 50px green";
-        }, 200);
-      }
-    });
+        document.getElementById("led");
+        .onClick(); //これでイベントが発火する
+        }, 200)
 </script>
 
 </body>
