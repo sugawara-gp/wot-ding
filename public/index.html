@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Slack Ding</title>
+    <script src="https://use.typekit.net/nje4wmu.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="css-devices/devices/i2c.js" defer></script>
     <script src="css-devices/devices/PortManager.js" defer></script>
     <script src="css-devices/devices/Utility.js" defer></script>
@@ -23,21 +25,20 @@
         height: 500px;
         width: 500px;
         border-radius: 50%;
-        border: 1px solid green;
+        /*border: 1px solid green;*/
         box-shadow:0 0 100px green;
         position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		margin: auto;
-		color: green;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    margin: auto;
+		    color: green;
       	font-size: 100px;
       	line-height: 500px;
-    	width: 500px;
-    	height: 500px;
-    	text-align: center;
-    	vertical-align: middle;
+        width: 500px;
+        height: 500px;
+        text-align: center;
       }
       #servo {
         transform: rotate(40deg); /* 0 to 180 */
@@ -53,7 +54,7 @@
     <script type="text/javascript">
       function ding(){
         document.getElementById("servo").style["transform"]="rotate("+10+"deg)";
-        document.getElementById("led").style["color"]="red";
+        document.getElementById("led").style["color"]="#D8103C";
         document.getElementById("led").style["background-color"]="#00FF47";
         setTimeout(function(){
           document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
