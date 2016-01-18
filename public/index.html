@@ -79,7 +79,7 @@
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-$(document).ready(function(){
+/*$(document).ready(function(){
         $('#led').click(function(e){
           alert("test");
           $('#led').css(
@@ -89,13 +89,17 @@ $(document).ready(function(){
 
 
         });  
-      });
+      }); */
     var socket = io();
     socket.on('led', function (userInfo) {
         var $li = $('<li>');
         $li.text(userInfo.name);
-        $li.append($('<img>').attr('src', userInfo.image));
+        $li.append($('<img>').attr('src', userInfo.image)).attr('class', 'abc');
         $('#leds').append($li);
+        $('.abc').click(function()
+        {
+          alert("test2");
+        })
     });
 </script>
 
