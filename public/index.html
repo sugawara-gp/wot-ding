@@ -79,10 +79,10 @@
     var socket = io();
     socket.on('led', function (userInfo) {
         var $li = $('<li>');
-        $li.text(userInfo.name);
         $li.append($('<img>').attr('src', userInfo.image));
+        $li.text(userInfo.name);
         $('#leds').append($li);
-        $('#leds').click("led");
+        $('li').trigger('led');
         }, 200)
 </script>
 
