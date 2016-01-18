@@ -68,9 +68,8 @@
         document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
       }
 
-      $('#servo').click(function(){
-          alert("test");
-      })
+      
+      
     </script>
 </head>
 <body>
@@ -81,6 +80,17 @@
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
+$(document).ready(function(){
+        $('#led').click(function(e){
+          alert("test");
+          $('#led').css(
+            {"color":"#D8103C", 
+             "box-shadow":"0 0 100px #D8103C"
+           });
+
+
+        });  
+      });
     var socket = io();
     socket.on('led', function (userInfo) {
         var $li = $('<li>');
