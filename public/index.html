@@ -95,9 +95,7 @@
         var $li = $('<li>');
         $li.text(userInfo.name);
         $li.append($('<img>').attr('src', userInfo.image)).attr('class', 'abc');
-        $('#leds').append($li);
-        $('.abc').click(function()
-        {
+        $('#leds').append($li).click(function(){
           alert("test2");
         })
     });
