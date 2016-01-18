@@ -82,7 +82,9 @@
         $li.append($('<img>').attr('src', userInfo.image));
         $li.text(userInfo.name);
         $('#leds').append($li);
-        $("#led").trigger("ding");
+        $("li").click(function(){
+          $(this).slideUp();
+        });
         }, 200)
 </script>
 
