@@ -39,11 +39,21 @@
         position: absolute;
         top: 0;
         right: 30px;
+        color: #ffffff;
       }
       #slider {
         width: 500px;
         top: 100px;
         left: 650px;
+      }
+      li {
+        display: flex; /* 要素をflexboxに対応させる */
+        align-items: center; /* 縦方向の中央揃え */
+        justify-content: center; /* 横方向の中央揃え */
+        flex-direction: column; /* 子要素の並びを上から下にする（要素の改行に対応） */
+        text-shadow: 0 0 10px green; 
+        width: 100vw;
+        height: 100vh;
       }
     </style>
     <script type="text/javascript">
