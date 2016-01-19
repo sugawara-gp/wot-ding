@@ -26,7 +26,7 @@
         padding: 0;
         color: green;
         font-size: 200px;
-        display: flex; /* 要素をflexboxに対応させる */
+        position: absolute;
         align-items: center; /* 縦方向の中央揃え */
         justify-content: center; /* 横方向の中央揃え */
         flex-direction: column; /* 子要素の並びを上から下にする（要素の改行に対応） */
@@ -56,7 +56,7 @@
         width: 100vw;
         height: 100vh;
       }
-      li img {
+      li  img {
         height: 100%;
       }
     </style>
@@ -100,6 +100,9 @@
         $li.append($('<img>').attr('src', userInfo.image));
         $('#leds').append($li);
     ding()
+    setTimeout(function() {
+      $("li").fadeOut();
+    }, 500);
     });
 </script>
 </body>
