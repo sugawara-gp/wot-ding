@@ -85,7 +85,7 @@
 <body>
     <div id="led" onClick="ding()" data-css-device="type:multi-color-led; port-type:i2c; port-number:0; address:0x40; pwm-pin:0,1,2; min-pulse:0; max-pulse:0.006;">Ding!</div>
     <div id="servo" data-css-device="type:servo; port-type:i2c; port-number:0; address:0x40; pwm-pin:3; min-pulse:0.0005; max-pulse:0.0024; angle-range:180;">SERVO<br><span id="angl"></span></div>
-<!-- <ul id="leds"></ul> -->
+<ul id="leds"></ul>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
