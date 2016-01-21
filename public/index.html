@@ -60,7 +60,7 @@
         border-radius: 120px;
         box-sizing: border-box;
       }
-      ul#sender img {
+      ul#sender li img {
         width: 100%;
         border-radius: 120px;
         filter:blur(1px);
@@ -107,7 +107,7 @@
 <script>
     var socket = io();
     socket.on('led', function (userInfo) {
-        var $li = $('<li>');
+        var $ul#sender li = $('<li>');
         /* $li.text(userInfo.name); */
         $li.append($('<img>').attr('src', userInfo.image));
         $li.append($('<sapn>').attr('src', userInfo.name));
