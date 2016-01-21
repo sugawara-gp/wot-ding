@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Slack Ding</title>
@@ -16,78 +16,92 @@
     <style>
       body {
         font-family:".tk-din-condensed-web","ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-        background-color: #ffffff;
+        background-color: #000;
         margin: 0;
         padding: 0;
-
-      }
-      #led {
-        margin: 0;
-        padding: 0;
-        color: green;
-        font-size: 200px;
-        position: absolute;
-        text-align: center;
-        vertical-align: middle;
-        text-shadow: 0 0 10px green; 
         width: 100vw;
         height: 100vh;
+      }
+      h1 {
+        margin-bottom: 40px;
+        color: #fff;
+        text-align: center;
+        font-family: "Avenir Next";
+        font-weight: 100;
+        font-size: 1rem;
+      }
+      h1 span {
+        padding-right: 4px;
+        font-size: 1.4rem;
+        vertical-align: middle;
+        color: #F50A45;
+        text-shadow: 
+      }
+      #led {
+        color: #0AF558;
+        text-shadow: 0px 0px 3px #21FF6B;
+        font-size: 64px;
+        text-align: center;
       }
       #servo {
         transform: rotate(40deg); /* 0 to 180 */
-        position: absolute;
-        top: 0;
-        right: 30px;
-        color: #ffffff;
+        visibility: hidden;
       }
-      #slider {
-        width: 500px;
-        top: 100px;
-        left: 650px;
+      ul#sender {
+        margin-bottom: 40px;
+        padding: 0;
       }
-      li {
-        position: absolute;
-        display: flex; 
+      ul#sender li {
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
         text-align: center;
-        vertical-align: middle;
-        text-shadow: 0 0 10px green; 
-        width: 100vw;
-        height: 100vh;
+        border: 3px double #fff;
+        border-radius: 120px;
+        box-sizing: border-box;
       }
-      li  img {
-        height: 100%;
+      ul#sender img {
+        width: 100%;
+        border-radius: 120px;
+        filter:blur(1px);
+        -moz-filter:blur(1px);
+        -webkit-filter:blur(1px);
+      }
+      ul#sender li span {
+        color: #fff;
+        font-size: 3rem;
       }
     </style>
     <script type="text/javascript">
       function ding(){
         document.getElementById("servo").style["transform"]="rotate("+10+"deg)";
-        document.getElementById("led").style["color"]="green";
-        document.getElementById("led").style["text-shadow"]="0 0 10px green";
+        document.getElementById("led").style["color"]="#0AF558";
+        document.getElementById("led").style["text-shadow"]="0 0 10px #21FF6B";
         setTimeout(function(){
           document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
-          document.getElementById("led").style["color"]="red";
-          document.getElementById("led").style["background-color"]="#ffffff";
-          document.getElementById("led").style["text-shadow"]="0 0 10px red";
+          document.getElementById("led").style["color"]="#F50A45";
+          document.getElementById("led").style["text-shadow"]="0 0 10px #FF4621";
             setTimeout(function(){
-              document.getElementById("led").style["color"]="green";
-              document.getElementById("led").style["background-color"]="#ffffff";
-              document.getElementById("led").style["text-shadow"]="0 0 10px green";
+              document.getElementById("led").style["color"]="#0AF558";
+              document.getElementById("led").style["text-shadow"]="0 0 10px #21FF6B";
             }, 200);
           }, 200);
       }
       
-      function rest(){
-        document.getElementById("servo").style["transform"]="rotate("+40+"deg)";
-      }
-
-      
-      
     </script>
 </head>
-<body>
-    <div id="led" onClick="ding()" data-css-device="type:multi-color-led; port-type:i2c; port-number:0; address:0x40; pwm-pin:0,1,2; min-pulse:0; max-pulse:0.006;">Ding!</div>
+<body onClick="ding()">
+    <h1><span>◉</span>Jacobel</h1>
+    <div id="led" data-css-device="type:multi-color-led; port-type:i2c; port-number:0; address:0x40; pwm-pin:0,1,2; min-pulse:0; max-pulse:0.006;">◉</div>
     <div id="servo" data-css-device="type:servo; port-type:i2c; port-number:0; address:0x40; pwm-pin:3; min-pulse:0.0005; max-pulse:0.0024; angle-range:180;">SERVO<br><span id="angl"></span></div>
-<ul id="leds"></ul>
+    <ul id="sender">
+      <!-- 仮
+      <li>
+        <img src="https://avatars.slack-edge.com/2015-12-22/17184683542_64c9508ef079e7658d7c_72.png" alt="" />
+        <span>gasu</span>
+      </li>
+      /仮 -->
+    </ul>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -96,11 +110,12 @@
         var $li = $('<li>');
         /* $li.text(userInfo.name); */
         $li.append($('<img>').attr('src', userInfo.image));
+        $li.append($('<sapn>').attr('src', userInfo.name));
         $('#leds').append($li);
     ding()
     setTimeout(function() {
       $("li").fadeOut();
-    }, 500);
+    }, 1000);
     });
 </script>
 </body>
